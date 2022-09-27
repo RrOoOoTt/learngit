@@ -4,13 +4,13 @@
 
 char id[20],pwd[20],text[50];
 
-//µÇÂ¼ 
+//ç™»å½• 
 int login()
 {
-    printf("µÇÂ¼½çÃæ\n");
-    printf("ID£º");
+    printf("ç™»å½•ç•Œé¢\n");
+    printf("IDï¼š");
     gets(id);
-    printf("PWD£º");
+    printf("PWDï¼š");
     gets(pwd); 
     strcat(id,pwd);
     strcat(id,"\n");
@@ -36,24 +36,24 @@ int login()
     
     if(ok)
     {
-      printf("µÇÂ¼³É¹¦!\n");
+      printf("ç™»å½•æˆåŠŸ!\n");
 	}
     else
     {
-      printf("µÇÂ¼Ê§°Ü!\n");
+      printf("ç™»å½•å¤±è´¥!\n");
 	}
 	fclose(fp);
 }
 
-//×¢²á 
+//æ³¨å†Œ 
 void regist()
 {
-	printf("×¢²á½çÃæ\n");
+	printf("æ³¨å†Œç•Œé¢\n");
     
     login();
 }
 
-//ÓÎÏ· 
+//æ¸¸æˆ 
 void game()
 {	 
 	clock_t start, end;
@@ -69,33 +69,33 @@ void game()
         if (num > guess)
 		{
             i++;	
-            printf("²ÂĞ¡ÁË\n");
+            printf("çŒœå°äº†\n");
             min = guess;
-            printf("·¶Î§:%d - %d\n", min, max);
+            printf("èŒƒå›´:%d - %d\n", min, max);
         }
 		else if (num < guess)
 		{
             i++;	
-            printf("²Â´óÁË\n");
+            printf("çŒœå¤§äº†\n");
             max = guess;
-            printf("·¶Î§:%d - %d\n", min, max);
+            printf("èŒƒå›´:%d - %d\n", min, max);
         }
 		else
 		{
             i++;	
             end = clock();
-            printf("²Â¶ÔÁË!\n²ÂÊı´ÎÊı£º%d´Î\nÓÃÊ±£º%dÃë", i, t);  
+            printf("çŒœå¯¹äº†!\nçŒœæ•°æ¬¡æ•°ï¼š%dæ¬¡\nç”¨æ—¶ï¼š%dç§’", i, t);  
             break;
         }
  
     }
 }
 
-//²Ëµ¥ 
+//èœå• 
 void meun()
 {
-	printf("1 ×¢²á\n");
-	printf("0 µÇÂ¼\n");
+	printf("1 æ³¨å†Œ\n");
+	printf("0 ç™»å½•\n");
     int a = 0;
     scanf("%d",&a);
     fflush(stdin);
@@ -121,7 +121,7 @@ int main()
         break;
         
         default:
-        printf("Ñ¡Ïî´íÎó!\nÇëÖØĞÂÊäÈë£º\n");
+        printf("é€‰é¡¹é”™è¯¯!\nè¯·é‡æ–°è¾“å…¥ï¼š\n");
     }
     return 0;
 }
