@@ -4,7 +4,6 @@
 #include<time.h>
 
 char id[100],pwd[100],text[100];
-int ok = 0;
 
 void login()
 {
@@ -12,11 +11,11 @@ void login()
     printf("ID：");
     gets(id);
     printf("PWD：");
-    gets(pwd); 
+    gets(pwd);
     strcat(id,pwd);
     strcat(id,"\n");
     
-	int len = 0, ok=0;
+	int ok=0;
     FILE *fp = fopen("user.txt", "r");
     if(NULL == fp)
     {
@@ -40,7 +39,7 @@ void login()
 	}
     else
     {
-      printf("登录失败!\n");
+      printf("登录失败!启动游客模式\n");
 	}
 	fclose(fp);
 }
@@ -50,9 +49,9 @@ void regist()
 	printf("注册界面\n");
     FILE *fp = fopen("user.txt","a");
     printf("ID：");
-    fgets(id);
+    gets(id);
     printf("PWD：");
-    gets(pwd); 
+    gets(pwd);
     fputs(id,fp);
     fputs(pwd,fp);
     fputs("\n",fp);
@@ -63,9 +62,10 @@ void regist()
 
 void game()
 {
+	time_t now_time;time(&now_time);
         clock_t start,end;
     start=clock();
-    printf("runtime = %f\n",rum_time);    
+    printf("runtime =%s\n",ctime(&now_time));    
     int num = rand() % 1000;  
     int guess, i = 0;   
     	int min=0,max=1000;
@@ -77,16 +77,22 @@ void game()
 		{
             i++;	
             printf("猜小了\n");
+	    min = guess;
+            printf("范围:%d - %d\n", min, max);
         }
 		else if (num < guess)
 		{
             i++;	
             printf("猜大了\n");
+	    max = guess;
+            printf("范围:%d - %d\n", min, max);
         }
 		else
 		{
             i++;	
-            printf("猜对了!\n猜数次数：%d次\n",i);  
+	  end = clock();
+	  int t=start-end;
+            printf("猜对了!\n猜数次数：%d次\n用时：%d秒", i, t);
             break;
         }
  
