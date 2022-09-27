@@ -62,9 +62,13 @@ void regist()
 }
 
 void game()
-{	 
+{
+        clock_t start,end;
+    start=clock();
+    printf("runtime = %f\n",rum_time);    
     int num = rand() % 1000;  
     int guess, i = 0;   
+    	int min=0,max=1000;
     while (1)
 	{
     	printf("Please guess the number:");
